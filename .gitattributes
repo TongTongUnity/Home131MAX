@@ -4,4 +4,8 @@
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.fbx filter=lfs diff=lfs merge=lfs -text
 *.jpg filter=lfs diff=lfs merge=lfs -text
-Assets/Agora-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraRtcKit.framework/AgoraRtcKit filter=lfs diff=lfs merge=lfs -text
+Assets/Home/JaneArtWork/Living Room/Materials 1/dianshigui/T_TVTable04_D.PNG filter=lfs diff=lfs merge=lfs -text
+Assets/Home/JaneArtWork/Living Room/Textures/Leather035D_4K_NormalGL.png filter=lfs diff=lfs merge=lfs -text
+Assets/Home/JaneArtWork/Living Room/Textures/Wood067_4K_NormalGL.png filter=lfs diff=lfs merge=lfs -text
+Assets/Home/JaneArtWork/Living Room/Textures/WoodFloor053_4K_NormalGL.png filter=lfs diff=lfs merge=lfs -text
+Assets/Home/Above Night A/Above Night A Equirect.png filter=lfs diff=lfs merge=lfs -text
