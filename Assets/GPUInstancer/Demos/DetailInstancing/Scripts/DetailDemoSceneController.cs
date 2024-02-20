@@ -57,17 +57,17 @@ namespace GPUInstancer
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.C))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.C))
             {
                 SwitchCameraMode();
             }
 
-            if (Input.GetKeyUp(KeyCode.U))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.U))
             {
                 _uiCanvas.gameObject.SetActive(!_uiCanvas.gameObject.activeSelf);
             }
 
-            if (Input.GetKeyUp(KeyCode.F1))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.F1))
             {
                 if (detailManager.gameObject.activeSelf && persistRemoval)
                     detailMapData = GPUInstancerAPI.GetDetailMapData(detailManager);
@@ -83,17 +83,17 @@ namespace GPUInstancer
                 SetQualityMode(_currentQualityMode);
             }
 
-            if (Input.GetKeyUp(KeyCode.F2))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.F2))
             {
                 SetQualityMode(QualityMode.Low);
             }
 
-            if (Input.GetKeyUp(KeyCode.F3))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.F3))
             {
                 SetQualityMode(QualityMode.Mid);
             }
 
-            if (Input.GetKeyUp(KeyCode.F4))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.F4))
             {
                 SetQualityMode(QualityMode.High);
             }

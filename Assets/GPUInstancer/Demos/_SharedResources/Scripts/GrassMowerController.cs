@@ -26,8 +26,8 @@ namespace GPUInstancer
 
         private void GetInputs()
         {
-            yawInput = Input.GetAxis("Horizontal");
-            thrustInput = Input.GetAxis("Jump");
+            yawInput = ControlFreak2.CF2Input.GetAxis("Horizontal");
+            thrustInput = ControlFreak2.CF2Input.GetAxis("Jump");
         }
 
         private void Move()

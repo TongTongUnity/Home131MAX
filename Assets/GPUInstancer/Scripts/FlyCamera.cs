@@ -20,10 +20,10 @@ namespace GPUInstancer
 
         void Update()
         {
-            if (Input.GetMouseButton(1))
+            if (ControlFreak2.CF2Input.GetMouseButton(1))
             {
-                _rotationEuler.x -= Input.GetAxis("Mouse Y") * rotationSpeed;
-                _rotationEuler.y += Input.GetAxis("Mouse X") * rotationSpeed;
+                _rotationEuler.x -= ControlFreak2.CF2Input.GetAxis("Mouse Y") * rotationSpeed;
+                _rotationEuler.y += ControlFreak2.CF2Input.GetAxis("Mouse X") * rotationSpeed;
                 transform.eulerAngles = _rotationEuler;
             }
 
@@ -37,19 +37,19 @@ namespace GPUInstancer
             _inputVector.x = 0;
             _inputVector.y = 0;
             _inputVector.z = 0;
-            if (Input.GetKey(KeyCode.W))
+            if (ControlFreak2.CF2Input.GetKey(KeyCode.W))
                 _inputVector.z += 1;
-            if (Input.GetKey(KeyCode.S))
+            if (ControlFreak2.CF2Input.GetKey(KeyCode.S))
                 _inputVector.z -= 1;
-            if (Input.GetKey(KeyCode.A))
+            if (ControlFreak2.CF2Input.GetKey(KeyCode.A))
                 _inputVector.x -= 1;
-            if (Input.GetKey(KeyCode.D))
+            if (ControlFreak2.CF2Input.GetKey(KeyCode.D))
                 _inputVector.x += 1;
-            if (Input.GetKey(KeyCode.Q))
+            if (ControlFreak2.CF2Input.GetKey(KeyCode.Q))
                 _inputVector.y -= 1;
-            if (Input.GetKey(KeyCode.E))
+            if (ControlFreak2.CF2Input.GetKey(KeyCode.E))
                 _inputVector.y += 1;
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (ControlFreak2.CF2Input.GetKey(KeyCode.LeftShift))
                 _inputVector *= Time.deltaTime * shiftSpeed;
             else
                 _inputVector *= Time.deltaTime * mainSpeed;

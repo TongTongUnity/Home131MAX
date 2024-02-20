@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GPUInstancer
 {
@@ -40,9 +40,9 @@ namespace GPUInstancer
         {
             RotateView();
             // the jump state needs to read here to make sure it is not missed
-            if (!m_Jump && Cursor.lockState == CursorLockMode.Locked)
+            if (!m_Jump && ControlFreak2.CFCursor.lockState == CursorLockMode.Locked)
             {
-                m_Jump = Input.GetButtonDown("Jump");
+                m_Jump = ControlFreak2.CF2Input.GetButtonDown("Jump");
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
@@ -99,12 +99,12 @@ namespace GPUInstancer
         private void GetInput(out float speed)
         {
             // Read input
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+            float horizontal = ControlFreak2.CF2Input.GetAxis("Horizontal");
+            float vertical = ControlFreak2.CF2Input.GetAxis("Vertical");
 
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+            m_IsWalking = !ControlFreak2.CF2Input.GetKey(KeyCode.LeftShift);
 
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
@@ -168,8 +168,8 @@ namespace GPUInstancer
         {
             if (m_cursorIsLocked)
             {
-                float yRot = Input.GetAxis("Mouse X") * XSensitivity;
-                float xRot = Input.GetAxis("Mouse Y") * YSensitivity;
+                float yRot = ControlFreak2.CF2Input.GetAxis("Mouse X") * XSensitivity;
+                float xRot = ControlFreak2.CF2Input.GetAxis("Mouse Y") * YSensitivity;
 
                 m_CharacterTargetRot *= Quaternion.Euler(0f, yRot, 0f);
                 m_CameraTargetRot *= Quaternion.Euler(-xRot, 0f, 0f);
@@ -198,8 +198,8 @@ namespace GPUInstancer
             lockCursor = value;
             if (!lockCursor)
             {//we force unlock the cursor if the user disable the cursor locking helper
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                ControlFreak2.CFCursor.lockState = CursorLockMode.None;
+                ControlFreak2.CFCursor.visible = true;
             }
         }
 
@@ -212,24 +212,24 @@ namespace GPUInstancer
 
         private void InternalLockUpdate()
         {
-            if (Input.GetKeyUp(KeyCode.Escape))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.Escape))
             {
                 m_cursorIsLocked = false;
             }
-            else if (Input.GetMouseButtonUp(0))
+            else if (ControlFreak2.CF2Input.GetMouseButtonUp(0))
             {
                 m_cursorIsLocked = true;
             }
 
             if (m_cursorIsLocked)
             {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                ControlFreak2.CFCursor.lockState = CursorLockMode.Locked;
+                ControlFreak2.CFCursor.visible = false;
             }
             else if (!m_cursorIsLocked)
             {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                ControlFreak2.CFCursor.lockState = CursorLockMode.None;
+                ControlFreak2.CFCursor.visible = true;
             }
         }
 

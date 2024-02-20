@@ -30,8 +30,8 @@ public class ETFreeLookCam : PivotBasedCameraRig
     {
         base.Awake();
         // Lock or unlock the cursor.
-        Cursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;
-        Cursor.visible = !m_LockCursor;
+        ControlFreak2.CFCursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;
+        ControlFreak2.CFCursor.visible = !m_LockCursor;
         m_PivotEulers = m_Pivot.rotation.eulerAngles;
 
         m_PivotTargetRot = m_Pivot.transform.localRotation;
@@ -42,18 +42,18 @@ public class ETFreeLookCam : PivotBasedCameraRig
     protected void Update()
     {
         HandleRotationMovement();
-        if (m_LockCursor && Input.GetMouseButtonUp(0))
+        if (m_LockCursor && ControlFreak2.CF2Input.GetMouseButtonUp(0))
         {
-            Cursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;
-            Cursor.visible = !m_LockCursor;
+            ControlFreak2.CFCursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;
+            ControlFreak2.CFCursor.visible = !m_LockCursor;
         }
     }
 
 
     private void OnDisable()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        ControlFreak2.CFCursor.lockState = CursorLockMode.None;
+        ControlFreak2.CFCursor.visible = true;
     }
 
     public Vector3 targetOffset;
@@ -72,8 +72,8 @@ public class ETFreeLookCam : PivotBasedCameraRig
             return;
 
         // Read the user input
-        var x = ETCInput.GetAxis("Mouse X");
-        var y = ETCInput.GetAxis("Mouse Y");
+        var x = ControlFreak2.CF2Input.GetAxis("Mouse X");
+        var y = ControlFreak2.CF2Input.GetAxis("Mouse Y");
 
         // Adjust the look angle by an amount proportional to the turn speed and horizontal input.
         m_LookAngle += x * m_TurnSpeed;

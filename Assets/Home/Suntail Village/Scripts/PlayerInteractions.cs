@@ -86,7 +86,7 @@ namespace Suntail
                 {
                     _lookDoor = interactionHit.collider.gameObject.GetComponentInChildren<Door>();
                     ShowDoorUI();
-                    if (Input.GetKeyDown(interactionKey))
+                    if (ControlFreak2.CF2Input.GetKeyDown(interactionKey))
                     {
                         _lookDoor.PlayDoorAnimation();
                     }
@@ -99,7 +99,7 @@ namespace Suntail
                 uiPanel.gameObject.SetActive(false);
             }
 
-            if (Input.GetKeyDown(interactionKey))
+            if (ControlFreak2.CF2Input.GetKeyDown(interactionKey))
             {
                 if (_currentlyPickedUpObject == null)
                 {

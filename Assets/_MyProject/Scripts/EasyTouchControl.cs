@@ -50,8 +50,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void FixedUpdate()
         {
             // read inputs
-            float h = ETCInput.GetAxis("Horizontal");
-            float v = ETCInput.GetAxis("Vertical");
+            float h = ControlFreak2.CF2Input.GetAxis("Horizontal");
+            float v = ControlFreak2.CF2Input.GetAxis("Vertical");
             //bool crouch = Input.GetKey(KeyCode.C);
 
             // calculate move direction to pass to character

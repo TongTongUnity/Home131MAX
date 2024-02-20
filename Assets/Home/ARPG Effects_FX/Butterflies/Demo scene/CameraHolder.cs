@@ -29,9 +29,9 @@ public class CameraHolder : MonoBehaviour
 
     void Start()
     {
-        if (Screen.dpi < 1) windowDpi = 1;
-        if (Screen.dpi < 200) windowDpi = 1;
-        else windowDpi = Screen.dpi / 200f;
+        if (ControlFreak2.CFScreen.dpi < 1) windowDpi = 1;
+        if (ControlFreak2.CFScreen.dpi < 200) windowDpi = 1;
+        else windowDpi = ControlFreak2.CFScreen.dpi / 200f;
         var angles = transform.eulerAngles;
         x = angles.y;
         y = angles.x;
@@ -114,19 +114,19 @@ public class CameraHolder : MonoBehaviour
         {
             currDistance = 2;
         }
-        currDistance -= Input.GetAxis("Mouse ScrollWheel") * 2;
-        if (Holder && (Input.GetMouseButton(0) || Input.GetMouseButton(1)))
+        currDistance -= ControlFreak2.CF2Input.GetAxis("Mouse ScrollWheel") * 2;
+        if (Holder && (ControlFreak2.CF2Input.GetMouseButton(0) || ControlFreak2.CF2Input.GetMouseButton(1)))
         {
-            var pos = Input.mousePosition;
+            var pos = ControlFreak2.CF2Input.mousePosition;
             float dpiScale = 1;
-            if (Screen.dpi < 1) dpiScale = 1;
-            if (Screen.dpi < 200) dpiScale = 1;
-            else dpiScale = Screen.dpi / 200f;
+            if (ControlFreak2.CFScreen.dpi < 1) dpiScale = 1;
+            if (ControlFreak2.CFScreen.dpi < 200) dpiScale = 1;
+            else dpiScale = ControlFreak2.CFScreen.dpi / 200f;
             if (pos.x < 380 * dpiScale && Screen.height - pos.y < 250 * dpiScale) return;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            x += (float)(Input.GetAxis("Mouse X") * xRotate * 0.02);
-            y -= (float)(Input.GetAxis("Mouse Y") * yRotate * 0.02);
+            ControlFreak2.CFCursor.visible = false;
+            ControlFreak2.CFCursor.lockState = CursorLockMode.Locked;
+            x += (float)(ControlFreak2.CF2Input.GetAxis("Mouse X") * xRotate * 0.02);
+            y -= (float)(ControlFreak2.CF2Input.GetAxis("Mouse Y") * yRotate * 0.02);
             y = ClampAngle(y, yMinLimit, yMaxLimit);
             var rotation = Quaternion.Euler(y, x, 0);
             var position = rotation * new Vector3(0, 0, -currDistance) + Holder.position + cameraPos;
@@ -135,8 +135,8 @@ public class CameraHolder : MonoBehaviour
         }
         else
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            ControlFreak2.CFCursor.visible = true;
+            ControlFreak2.CFCursor.lockState = CursorLockMode.None;
         }
 
         if (prevDistance != currDistance)

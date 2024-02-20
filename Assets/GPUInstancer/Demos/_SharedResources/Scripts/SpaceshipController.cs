@@ -54,10 +54,10 @@ namespace GPUInstancer
 
         private void GetInputs()
         {
-            yawInput = Input.GetAxis("Horizontal");
-            thrustInput = Input.GetAxis("Jump");
-            pitchInput = Input.GetAxis("Vertical");
-            rollInput = Input.GetKey(KeyCode.Q) ? 1f : Input.GetKey(KeyCode.E) ? -1f : 0f;
+            yawInput = ControlFreak2.CF2Input.GetAxis("Horizontal");
+            thrustInput = ControlFreak2.CF2Input.GetAxis("Jump");
+            pitchInput = ControlFreak2.CF2Input.GetAxis("Vertical");
+            rollInput = ControlFreak2.CF2Input.GetKey(KeyCode.Q) ? 1f : ControlFreak2.CF2Input.GetKey(KeyCode.E) ? -1f : 0f;
         }
 
         private void Move()

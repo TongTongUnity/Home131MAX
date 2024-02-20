@@ -9,8 +9,8 @@ public class DynamicBoneDemo1 : MonoBehaviour
 
     void Update()
     {
-        m_Player.transform.Rotate(new Vector3(0, Input.GetAxis("Horizontal") * Time.deltaTime * 200, 0));
-        m_Player.transform.Translate(transform.forward * Input.GetAxis("Vertical") * Time.deltaTime * 4);
+        m_Player.transform.Rotate(new Vector3(0, ControlFreak2.CF2Input.GetAxis("Horizontal") * Time.deltaTime * 200, 0));
+        m_Player.transform.Translate(transform.forward * ControlFreak2.CF2Input.GetAxis("Vertical") * Time.deltaTime * 4);
     }
 
     void OnGUI()

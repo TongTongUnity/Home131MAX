@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /*Simple player movement controller, based on character controller component, 
@@ -84,8 +84,8 @@ namespace Suntail
         {
             _characterController = GetComponent<CharacterController>();
             GetTerrainData();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            ControlFreak2.CFCursor.lockState = CursorLockMode.Locked;
+            ControlFreak2.CFCursor.visible = false;
         }
 
         //Getting all terrain data for footstep system
@@ -114,17 +114,17 @@ namespace Suntail
                 _velocity.y = -2f;
             }
             
-            if (Input.GetKey(jumpKey) && _characterController.isGrounded)
+            if (ControlFreak2.CF2Input.GetKey(jumpKey) && _characterController.isGrounded)
             {
                 _velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
             }
             
-            _horizontalMovement = Input.GetAxis("Horizontal");
-            _verticalMovement = Input.GetAxis("Vertical");
+            _horizontalMovement = ControlFreak2.CF2Input.GetAxis("Horizontal");
+            _verticalMovement = ControlFreak2.CF2Input.GetAxis("Vertical");
 
             _moveDirection = transform.forward * _verticalMovement + transform.right * _horizontalMovement;
             
-            _isRunning = Input.GetKey(runKey);
+            _isRunning = ControlFreak2.CF2Input.GetKey(runKey);
             _currentSpeed = walkSpeed * (_isRunning ? runMultiplier : 1f);
             _characterController.Move(_moveDirection * _currentSpeed * Time.deltaTime);
 
@@ -135,8 +135,8 @@ namespace Suntail
 
         private void MouseLook()
         {   
-            _xAxis = Input.GetAxis("Mouse X"); 
-            _yAxis = Input.GetAxis("Mouse Y");
+            _xAxis = ControlFreak2.CF2Input.GetAxis("Mouse X"); 
+            _yAxis = ControlFreak2.CF2Input.GetAxis("Mouse Y");
 
             _verticalRotation += -_yAxis * mouseSensivity;
             _verticalRotation = Mathf.Clamp(_verticalRotation, -mouseVerticalClamp, mouseVerticalClamp);

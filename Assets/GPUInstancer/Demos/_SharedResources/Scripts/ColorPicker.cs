@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,7 +49,7 @@ namespace GPUInstancer
         private static bool GetLocalMouse(GameObject go, out Vector2 result)
         {
             var rt = (RectTransform)go.transform;
-            var mp = rt.InverseTransformPoint(Input.mousePosition);
+            var mp = rt.InverseTransformPoint(ControlFreak2.CF2Input.mousePosition);
             result.x = Mathf.Clamp(mp.x, rt.rect.min.x, rt.rect.max.x);
             result.y = Mathf.Clamp(mp.y, rt.rect.min.y, rt.rect.max.y);
             return rt.rect.Contains(mp);
@@ -143,7 +143,7 @@ namespace GPUInstancer
             Action dragH = null;
             Action dragSV = null;
             Action idle = () => {
-                if (Input.GetMouseButtonDown(0))
+                if (ControlFreak2.CF2Input.GetMouseButtonDown(0))
                 {
                     Vector2 mp;
                     if (GetLocalMouse(hueGO, out mp))
@@ -163,7 +163,7 @@ namespace GPUInstancer
                 applyHue();
                 applySaturationValue();
                 hueKnob.transform.localPosition = new Vector2(hueKnob.transform.localPosition.x, mp.y);
-                if (Input.GetMouseButtonUp(0))
+                if (ControlFreak2.CF2Input.GetMouseButtonUp(0))
                 {
                     _update = idle;
                 }
@@ -175,7 +175,7 @@ namespace GPUInstancer
                 Value = mp.y / satvalSz.y;
                 applySaturationValue();
                 satvalKnob.transform.localPosition = mp;
-                if (Input.GetMouseButtonUp(0))
+                if (ControlFreak2.CF2Input.GetMouseButtonUp(0))
                 {
                     _update = idle;
                 }

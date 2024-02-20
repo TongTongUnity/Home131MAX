@@ -146,21 +146,21 @@ namespace GPUInstancer
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.Q))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.Q))
             {
                 AddTerrain();
             }
-            if (Input.GetKeyUp(KeyCode.E))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.E))
             {
                 RemoveTerrain();
             }
-            if (Input.GetKeyUp(KeyCode.C))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.C))
             {
                 SwitchCameras();
                 isCurrentCameraFixed = !isCurrentCameraFixed;
             }
 
-            if (Input.GetKeyUp(KeyCode.U))
+            if (ControlFreak2.CF2Input.GetKeyUp(KeyCode.U))
             {
                 _uiCanvas.gameObject.SetActive(!_uiCanvas.gameObject.activeSelf);
             }
@@ -505,8 +505,8 @@ namespace GPUInstancer
 
             if (!isCurrentCameraFixed)
             {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                ControlFreak2.CFCursor.lockState = CursorLockMode.None;
+                ControlFreak2.CFCursor.visible = true;
             }
         }
 
